@@ -13,10 +13,10 @@ const Productos = () => {
                 <div className="card">
                     <div className="card-body">
                         <img src={item.urlImagen} width="100" className="my-4 mx-auto d-block"/>
-                        <h5 className="card-title">nombre: {item.nombre}</h5>
-                        <p className="card-text">descripcion: {item.descripcion}</p>
-                        <p claclassNamess="card-text">caracteristicas: {item.características}</p>
-                        <p claclassNamess="card-text">precio : $ {item.precio}</p>
+                        <h5 className="card-title">Nombre: {item.nombre}</h5>
+                        <p className="card-text">Descripcion: {item.descripcion}</p>
+                        <p claclassNamess="card-text">Caracteristicas: {item.características}</p>
+                        <p claclassNamess="card-text">Valor: $ {item.precio}</p>
                        
                     </div>
                     <label for="cantidad" className="form-label">Cantidad</label>
