@@ -35,7 +35,7 @@ class MiComponente extends Component {
             <tr class="tabla-total">
               <th scope="row">Total</th>
               <td></td>
-              <td>{this.totalizar(data)}</td>
+              <td>{this.totalizar(jsonVentas)}</td>
             </tr>
 
           </tbody>
@@ -44,5 +44,6 @@ class MiComponente extends Component {
     );
   }
 }
+
 
 export default MiComponente;

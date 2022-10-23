@@ -1,12 +1,12 @@
 import jsonProductos from "../data/bdProductos";
 import React from 'react'
-import Navbar from "./NavBar";
+import NavbarCliente from "./NavBarCliente";
 
 const Productos = () => {
   return (
     <div >
 
-        <Navbar/>
+        <NavbarCliente/>
          
          <div class="row  row-cols-md-5 g-1">
         {jsonProductos.map((item) => (
