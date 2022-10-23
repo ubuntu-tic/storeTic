@@ -27,7 +27,7 @@ class CarritoCompras extends Component {
             <tr className="tabla-encabezado">
               <th scope="col">Imagen</th>
               <th scope="col">cantidad</th>
-              <th scope="col">Nombre</th>
+              <th scope="col">Producto</th>
               <th scope="col">Valor</th>
               <th scope="col">Total</th>
             </tr>
