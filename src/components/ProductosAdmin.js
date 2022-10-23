@@ -10,7 +10,7 @@ const ProductosAdmin = () => {
 
       <Navbar/>
          
-         <div class="row  row-cols-md-5 g-1">
+         <div className="row  row-cols-md-5 g-1">
         {jsonProductos.map((item) => (
                 <div className="card">
                     <div className="card-body">

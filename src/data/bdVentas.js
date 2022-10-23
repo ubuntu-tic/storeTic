@@ -7,7 +7,7 @@ const jsonVentas = [
             "confirmado": true,
             "detalleCompra": [
               {
-                "idProducto": "GGOEAFKA087599",
+                "idProducto": "1",
                 "cantidad": 2
               }
             ]
@@ -20,7 +20,7 @@ const jsonVentas = [
             "confirmado": false,
             "detalleCompra": [
               {
-                "idProducto": "GGOEAFKA087499",
+                "idProducto": "2",
                 "cantidad": 2
               }
             ]
@@ -33,12 +33,12 @@ const jsonVentas = [
             "confirmado": true,
             "detalleCompra": [
               {
-                "idProducto": "GGOEAFKA087499",
+                "idProducto": "2",
                 "cantidad": 2
               },
               {
-                "idProducto": "GGOEAFKA087599",
-                "cantidad": 1
+                "idProducto": "4",
+                "cantidad": 4
               }
             ]
           }

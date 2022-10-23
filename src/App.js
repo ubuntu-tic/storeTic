@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import AddProducto from "./components/AddProducto";
+import CarritoCompras from "./components/CarritoCompras";
 import MiComponente from "./components/MiComponente";
 import Navbar from "./components/NavBar";
 import Productos from "./components/Productos";
@@ -21,17 +22,25 @@ class App extends Component {
           </div>
 
           <div>
+            <CarritoCompras />
+          </div>
+
+          <div>
             <ProductosAdmin />
           </div>
+
+          <div>
+            <AddProducto/>
+          </div>
+
 
           <div>
            
             <Productos />
           </div>
 
-          <div>
-            <AddProducto/>
-          </div>
+          
+        
 
         </div>
       </div>
