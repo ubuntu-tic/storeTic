@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import MiComponente from "./components/MiComponente";
 import Navbar from "./components/NavBar";
+import Productos from "./components/Productos";
 import TablaVentas from "./components/TablaVentas";
 
 class App extends Component {
@@ -17,6 +18,12 @@ class App extends Component {
             {/* <TablaVentas /> */}
             <MiComponente />
           </div>
+
+          <div>
+            {/* <TablaVentas /> */}
+            <Productos />
+          </div>
+
         </div>
       </div>
     );

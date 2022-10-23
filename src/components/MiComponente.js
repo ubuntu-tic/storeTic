@@ -1,5 +1,7 @@
 import { Component } from "react";
+import jsonVentas from "../data/bdVentas";
 import data from "../data/data";
+
 
 
 class MiComponente extends Component {
@@ -23,9 +25,9 @@ class MiComponente extends Component {
             </tr>
           </thead>
           <tbody>
-            {data.map((item) => (
+            {jsonVentas.map((item) => (
               <tr class="tabla-fila">
-                <th scope="row">{item.id}</th>
+                <th scope="row">{item.idVenta}</th>
                 <td>{item.fecha}</td>
                 <td>{`$ ${item.valor}`}</td>
               </tr>
@@ -35,6 +37,7 @@ class MiComponente extends Component {
               <td></td>
               <td>{this.totalizar(data)}</td>
             </tr>
+
           </tbody>
         </table>
       </>
