@@ -1,6 +1,6 @@
 import { Component } from "react";
 import jsonVentas from "../data/bdVentas";
-import data from "../data/data";
+
 
 
 
