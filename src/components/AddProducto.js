@@ -1,10 +1,9 @@
 import React from 'react'
-import Navbar from "./NavBar";
-
+import Index from "../pages/Index"
 const AddProducto = () => {
   return (
     <div>
-        <Navbar/>
+        <Index/>
         <form className='addPRoducto'>
             <fieldset>
                 <div className="form-group">

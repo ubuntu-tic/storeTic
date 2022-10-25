@@ -6,43 +6,24 @@ import MiComponente from "./components/MiComponente";
 import Navbar from "./components/NavBar";
 import Productos from "./components/Productos";
 import ProductosAdmin from "./components/ProductosAdmin";
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Index from "./pages/Index"
 
 class App extends Component {
   render() {
     return (
-      <div className="app container">
-        <div className="jumbotron">
-          {/*<h1 className="lead text-center">Bienvenidos a Cleaning Storetic</h1>*/}
-          <div>
-            <Navbar />
-          </div>
-          <div>
-            <MiComponente />
-          </div>
-
-          <div>
-            <CarritoCompras />
-          </div>
-
-          <div>
-            <ProductosAdmin />
-          </div>
-
-          <div>
-            <AddProducto/>
-          </div>
-
-
-          <div>
-           
-            <Productos />
-          </div>
-
-          
+      <div>
         
-
-        </div>
+        <Router>
+          <Routes>
+          <Route path="components/AddProducto" element={<AddProducto/>}/>
+          <Route path="components/ProductosAdmin" element={<ProductosAdmin/>}/>
+          <Route path="components/MiComponente" element={<MiComponente/>}/>
+          <Route path="components/CarritoCompras" element={<CarritoCompras/>}/>
+          
+          <Route path="/" element={<Index/>}/>
+          </Routes>
+        </Router>
       </div>
     );
   }

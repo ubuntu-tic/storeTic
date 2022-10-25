@@ -1,26 +1,31 @@
 import React, {Component} from "react";
-
+import {Link} from "react-router-dom"
 class Navbar extends Component {
     render() { 
         return ( 
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Cleaning StoreTic</a>
+                    <Link className="navbar-brand" to="/">Cleaning StoreTic</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarColor02">
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item">
-                            <a className="nav-link active" href="#/lista_productos">Lista de Productos
+                            <Link className="nav-link active" to="./components/ProductosAdmin">Lista de Productos
                                 <span className="visually-hidden">(current)</span>
-                            </a>
+                            </Link>
                             </li>
                             <li className="nav-item">
-                            <a className="nav-link" href="/editar_prod">Modificar Productos</a>
+                            < Link className="nav-link" to="./components/AddProducto">Modificar Productos</Link >
                             </li>
                             <li className="nav-item">
-                            <a className="nav-link" href="lista_venta">Lista de Ventas</a>
+                            <Link className="nav-link" to="./components/MiComponente">Lista de Ventas</Link>
+                            </li>
+                            <li className="nav-item">
+                            <Link className="nav-link active" to="./components/CarritoCompras">Carrito Compras
+                                <span className="visually-hidden">(current)</span>
+                            </Link>
                             </li>
                            
                         </ul>
