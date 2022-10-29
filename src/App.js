@@ -20,6 +20,7 @@ class App extends Component {
           <Route path="components/ProductosAdmin" element={<ProductosAdmin/>}/>
           <Route path="components/MiComponente" element={<MiComponente/>}/>
           <Route path="components/CarritoCompras" element={<CarritoCompras/>}/>
+          <Route path="components/Productos" element={<Productos/>}/>
           
           <Route path="/" element={<Index/>}/>
           </Routes>

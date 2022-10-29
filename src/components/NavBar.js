@@ -12,18 +12,18 @@ class Navbar extends Component {
                     <div className="collapse navbar-collapse" id="navbarColor02">
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item">
-                            <Link className="nav-link active" to="./components/ProductosAdmin">Lista de Productos
+                            <Link className="nav-link active" to="../components/ProductosAdmin">Administrar Productos
                                 <span className="visually-hidden">(current)</span>
                             </Link>
                             </li>
                             <li className="nav-item">
-                            < Link className="nav-link" to="./components/AddProducto">Modificar Productos</Link >
+                            < Link className="nav-link" to="../components/AddProducto">Modificar Productos</Link >
                             </li>
                             <li className="nav-item">
-                            <Link className="nav-link" to="./components/MiComponente">Lista de Ventas</Link>
+                            <Link className="nav-link" to="../components/MiComponente">Lista de Ventas</Link>
                             </li>
                             <li className="nav-item">
-                            <Link className="nav-link active" to="./components/CarritoCompras">Carrito Compras
+                            <Link className="nav-link active" to="../components/CarritoCompras">Carrito Compras
                                 <span className="visually-hidden">(current)</span>
                             </Link>
                             </li>

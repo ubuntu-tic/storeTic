@@ -9,7 +9,7 @@ const jsonProductos = [
     },
     {
       "id": 2,
-      "urlImagen": "https://exitocol.vtexassets.com/arquivos/ids/15022152-500-auto?v=1752884516&width=500&height=auto&aspect=true",
+      "urlImagen": "https://exitocol.vtexassets.com/arquivos/ids/11458345-500-auto?v=1753386663&width=500&height=auto&aspect=true",
       "nombre": "Detergente FAB en polvo",
       "descripcion": "Detergente en polvo multi uso",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
