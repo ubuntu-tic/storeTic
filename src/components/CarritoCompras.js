@@ -7,7 +7,14 @@ import NavbarCliente from "./NavBarCliente";
 
 
 class CarritoCompras extends Component {
+
+
+
   render() {
+
+    const miCarrito = localStorage.getItem('carrito');
+    console.log("Carrito",miCarrito)
+
     this.totalizar = function (arreglo = [1, 2]) {
       let contador = 0;
       for (const elemento of arreglo) {

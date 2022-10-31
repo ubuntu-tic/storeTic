@@ -8,7 +8,7 @@ const jsonVentas = [
             "detalleCompra": [
               {
                 "idProducto": "1",
-                "cantidad": 2
+                "cantidad": 22
               }
             ]
           },
