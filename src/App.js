@@ -1,21 +1,30 @@
-import React, { Component } from 'react';
-import './App.css';
-import Navbar from './components/NavBar';
-import TablaVentas from './components/TablaVentas';
+import React, { Component } from "react";
+import "./App.css";
+import AddProducto from "./components/AddProducto";
+import CarritoCompras from "./components/CarritoCompras";
+import MiComponente from "./components/MiComponente";
+import Navbar from "./components/NavBar";
+import Productos from "./components/Productos";
+import ProductosAdmin from "./components/ProductosAdmin";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Index from "./pages/Index"
 
 class App extends Component {
   render() {
     return (
-      <div className="app container">
-        <div className='jumbotron'>
-          <h1 className='lead text-center'>Bienvenidos a Clean Storetic</h1>
-           <div>  
-              <Navbar />
-           </div>
-           <div>  
-              <TablaVentas />
-           </div>
-        </div>
+      <div>
+        
+        <Router>
+          <Routes>
+          <Route path="components/AddProducto" element={<AddProducto/>}/>
+          <Route path="components/ProductosAdmin" element={<ProductosAdmin/>}/>
+          <Route path="components/MiComponente" element={<MiComponente/>}/>
+          <Route path="components/CarritoCompras" element={<CarritoCompras/>}/>
+          <Route path="components/Productos" element={<Productos/>}/>
+          
+          <Route path="/" element={<Index/>}/>
+          </Routes>
+        </Router>
       </div>
     );
   }

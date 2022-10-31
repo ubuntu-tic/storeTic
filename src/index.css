@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.tabla {
+  border-collapse: collapse;
+  overflow: hidden;
+  border: 2px solid rgb(12, 148, 118);
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px 5px gray;
+  margin-top: 20px;
+}
+
+.tabla-encabezado {
+  background-color: rgb(10, 128, 73);
+  color: white;
+}
+
+.tabla-fila {
+  background-color: rgb(204, 236, 226);
+}
+
+.tabla-total {
+  background-color: rgb(107, 168, 148);
+}
+
+
