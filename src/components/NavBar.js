@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom"
-class Navbar extends Component {
+class NavBar extends Component {
     render() { 
         return ( 
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -16,9 +16,7 @@ class Navbar extends Component {
                                 <span className="visually-hidden">(current)</span>
                             </Link>
                             </li>
-                            <li className="nav-item">
-                            < Link className="nav-link" to="../components/AddProducto">Modificar Productos</Link >
-                            </li>
+                            
                             <li className="nav-item">
                             <Link className="nav-link" to="../components/MiComponente">Lista de Ventas</Link>
                             </li>
@@ -40,5 +38,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
-
+export default NavBar;

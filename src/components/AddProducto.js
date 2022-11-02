@@ -3,7 +3,7 @@ import Index from "../pages/Index"
 const AddProducto = () => {
   return (
     <div>
-        <Index/>
+        
         <form className='addPRoducto'>
             <fieldset>
                 <div className="form-group">

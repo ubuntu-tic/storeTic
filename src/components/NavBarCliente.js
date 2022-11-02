@@ -12,18 +12,16 @@ class NavbarCliente extends Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarColor02">
                         <ul className="navbar-nav me-auto">
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="../components/Productos">Lista de Productos
+                                <span className="visually-hidden">(current)</span>
+                            </Link>
+                            </li>
                             <li className="nav-item">
                             <Link className="nav-link active" to="../components/CarritoCompras">Carrito de Compras
                                 <span className="visually-hidden">(current)</span>
                             </Link>
                             </li>
-                            <li className="nav-item">
-                            <Link className="nav-link active" to="../components/Productos">Lista de Productos
-                                <span className="visually-hidden">(current)</span>
-                            </Link>
-                            </li>
-                           
-                           
                         </ul>
                         <form className="d-flex">
                             <input className="form-control me-sm-2" type="text" placeholder="Buscar" img="" />
