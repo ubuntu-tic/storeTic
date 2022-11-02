@@ -13,7 +13,7 @@ const Modales = () => {
       
       
 
-      <button className='btn btn-success m-2' onClick={() => setVerFormulario(true)}>Agregar Producto</button>
+      <button className='btn btn-success m-2' style={{ position: "fixed", top: "10%", right: 0 }} onClick={() => setVerFormulario(true)}>Agregar Producto</button>
       
       <Modal isOpen={verFormulario} onClose={() => setVerFormulario(false)}>
         <AddProducto />

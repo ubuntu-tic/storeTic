@@ -82,7 +82,7 @@ class CarritoCompras extends Component {
                 <td>{item.nombre}</td>
                 <td>{`$ ${item.precio}`}</td>
                 <td>{`$ ${item.precio*item.cantidad}`}</td>
-                <td><button onClick={() => {this.eliminar(item.id)}}>[eliminar]</button></td>
+                <td><button className="btn btn-danger" onClick={() => {this.eliminar(item.id)}}>eliminar</button></td>
               </tr>
             ))}
             <tr className="tabla-total">
