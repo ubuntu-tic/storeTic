@@ -1,6 +1,6 @@
 import { Component } from "react";
 import jsonVentas from "../data/bdVentas";
-import Index from "pages/Index";
+import NavBar from "./NavBar";
 
 
 
@@ -16,7 +16,7 @@ class MiComponente extends Component {
 
     return (
       <>
-       <Index/>
+       <NavBar/>
       <a>Tabla de Ventas</a>
         <table className="table table-hover tabla">
           

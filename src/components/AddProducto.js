@@ -26,7 +26,8 @@ const AddProducto = () => {
                     <label for="precio" className="form-label mt-4">Precio de Producto</label>
                     <input type="number" className="form-control" id="precio" placeholder="precio"/>
                 </div><br/>
-                <button type="submit" className="btn btn-primary">Agregar Producto</button>
+                <button type="submit" className="btn btn-success">Agregar Producto</button>
+                <button type="reset" className="btn btn-danger">Cancelar</button>
             </fieldset>
         </form>
     </div>
