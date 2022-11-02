@@ -1,6 +1,6 @@
 
 import { Component } from "react";
-import jsonVentas from "../data/bdVentas";
+import jsonProductos from "../data/bdProductos";
 import NavbarCliente from "./NavBarCliente";
 
 
@@ -10,18 +10,51 @@ class CarritoCompras extends Component {
 
 
 
+  
+
   render() {
 
-    const miCarrito = localStorage.getItem('carrito');
-    console.log("Carrito",miCarrito)
+    let carritoActual;
+    let miCarrito = [];
+    this.listarProductos = function (arreglo) {
+      carritoActual = localStorage.getItem('carrito');
+      carritoActual = JSON.parse(carritoActual);           
+      
+      if (carritoActual) {
+        Object.keys(carritoActual).forEach((item)=> {
+          if (carritoActual[item] > 0) {
+            console.log(item);
+            miCarrito.push({
+              ...jsonProductos.find(obj => obj.id == item),
+              cantidad:carritoActual[item]
+            })
+          }
+        })
+      }
+      console.log("Prueba",miCarrito);
+    }
 
-    this.totalizar = function (arreglo = [1, 2]) {
+    this.listarProductos()
+
+    
+
+    
+    this.totalizar = function (arreglo) {
       let contador = 0;
       for (const elemento of arreglo) {
-       contador += Number(elemento.valor);
+       contador += Number(elemento.precio * elemento.cantidad);
       }
       return "$ " + contador;
     };
+
+    this.eliminar = function (id) {
+      console.log(carritoActual[id]);
+      carritoActual[id] = 0;
+      localStorage.setItem('carrito',JSON.stringify(carritoActual));
+      this.listarProductos();
+      window.location.href=window.location.href
+      
+    }
 
     
 
@@ -37,17 +70,19 @@ class CarritoCompras extends Component {
               <th scope="col">Producto</th>
               <th scope="col">Valor</th>
               <th scope="col">Total</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
-            {jsonVentas.map((item) => (
-              
+            {miCarrito.map((item) => (
+
               <tr className="tabla-fila">
-                <td>{item.urlImagen}</td>
-                <td>{item.detalleCompra.map((mostrar) => (mostrar.cantidad))}</td>
+                <td><img src={item.urlImagen} width="100" /></td>
+                <td>{item.cantidad}</td>
                 <td>{item.nombre}</td>
-                <td>{`$ ${item.valor}`}</td>
-                <td>{`$ ${item.valor*item.detalleCompra.map((mostrar) => (mostrar.cantidad))}`}</td>
+                <td>{`$ ${item.precio}`}</td>
+                <td>{`$ ${item.precio*item.cantidad}`}</td>
+                <td><button onClick={() => {this.eliminar(item.id)}}>[eliminar]</button></td>
               </tr>
             ))}
             <tr className="tabla-total">
@@ -55,7 +90,8 @@ class CarritoCompras extends Component {
               <th></th>
               <td></td>
                 <td></td>
-              <td>{this.totalizar(jsonVentas)}</td>
+                <td></td>
+                <td>{this.totalizar(miCarrito)}</td>
             </tr>
 
           </tbody>
