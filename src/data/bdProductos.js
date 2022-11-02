@@ -62,6 +62,22 @@ const jsonProductos = [
       "descripcion": "lavaloza liquido brilla king",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
       "precio": 2550
+    },
+    {
+      "id": 9,
+      "urlImagen": "https://exitocol.vtexassets.com/arquivos/ids/11456937-500-auto?v=1753752124&width=500&height=auto&aspect=true",
+      "nombre": "Limpia Ya",
+      "descripcion": "Detergente liquido limpia ya 1000 ml",
+      "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
+      "precio": 4840
+    },
+    {
+      "id": 10,
+      "urlImagen": "https://exitocol.vtexassets.com/arquivos/ids/1973296-500-auto?v=1753738811&width=500&height=auto&aspect=true",
+      "nombre": "Dersa",
+      "descripcion": "Suavizante manzana durazno",
+      "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
+      "precio": 29650
     }
         ]
 
