@@ -9,9 +9,6 @@ import NavbarCliente from "./NavBarCliente";
 class CarritoCompras extends Component {
 
 
-
-  
-
   render() {
 
     let carritoActual;
@@ -89,9 +86,10 @@ class CarritoCompras extends Component {
               <th scope="row">Total</th>
               <th></th>
               <td></td>
-                <td></td>
+                
                 <td></td>
                 <td>{this.totalizar(miCarrito)}</td>
+                <td></td>
             </tr>
 
           </tbody>
