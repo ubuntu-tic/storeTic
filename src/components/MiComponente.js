@@ -17,7 +17,7 @@ class MiComponente extends Component {
     return (
       <>
        <NavBar/>
-      <a>Tabla de Ventas</a>
+       <h1>Lista de Ventas</h1>
         <table className="table table-hover tabla">
           
           <thead>

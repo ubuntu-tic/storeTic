@@ -58,7 +58,7 @@ class CarritoCompras extends Component {
     return (
       <>      
       <NavbarCliente/>
-      <a>Tabla de carrito</a>
+      <h1>Carrito de Compras</h1>
         <table className="table table-hover tabla">
           <thead>
             <tr className="tabla-encabezado">
