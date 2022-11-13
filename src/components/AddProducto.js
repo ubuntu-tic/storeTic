@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function AddProducto({addFunction,setVerFormulario,datos,setDatos}) {
+function AddProducto({addFunction,setVerFormulario,datos,setDatos,tipo,updateFunction}) {
 
 
 
@@ -13,16 +13,22 @@ function AddProducto({addFunction,setVerFormulario,datos,setDatos}) {
         setDatos(tempDatos)
     }    
 
-    const agregarProducto =  function (event) {
+    const manejarSubmit =  function (event) {
         event.preventDefault();
-        addFunction(datos)
+        const accion = event.target.getAttribute("data-accion");
+        console.log(accion);
+        if (tipo != "editar")
+            addFunction(datos)
+        else
+            updateFunction(datos)
     }
     
   return (
     <div>
         
-        <form className='addPRoducto' onSubmit={agregarProducto}>
-        <h1>Agregar Producto</h1>
+        <form className='addPRoducto' onSubmit={manejarSubmit}>
+        {tipo == "editar" && <h1>Editar Producto</h1> }
+        {tipo != "editar" && <h1>Agregar Producto</h1> }
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="urlImagen" className="form-label mt-3">Url Imagen</label>
@@ -48,7 +54,9 @@ function AddProducto({addFunction,setVerFormulario,datos,setDatos}) {
                     <label htmlFor="stock" className="form-label mt-1">stock de Producto</label>
                     <input type="number" className="form-control" id="stock" placeholder="unidades disponibles" onChange={actualizarDatos} required/>
                 </div>
-                <button type="submit" className="btn btn-success">Enviar</button>
+                
+                <button type="submit" className="btn btn-success" data-accion="editar">Enviar</button>
+                
                 <button type="reset" className="btn btn-danger">Cancelar</button>
             </fieldset>
         </form>

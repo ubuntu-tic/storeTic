@@ -9,6 +9,7 @@ const ProductosAdmin = () => {
   const listadoProductos = JSON.parse(localStorage.getItem('productos'));
   const [productos, setProductos] = useState(listadoProductos)
   const [datos, setDatos] = useState({})
+  const [tipo, setTipo] = useState("agregar")
 
   
   const [verFormulario, setVerFormulario] = useState(false)
@@ -36,13 +37,27 @@ const ProductosAdmin = () => {
     localStorage.setItem('productos',JSON.stringify(productos));
     window.location.reload()
   }
+  const editarProducto = (datos) => {
+    let tempProductos = productos;
+    setProductos(tempProductos)
+    localStorage.setItem('productos',JSON.stringify(tempProductos));
+    window.location.reload()
+  }
 
   const editar = (element) => {
     const pos = element.target.getAttribute("data-index");
     const id = element.target.getAttribute("data-id");
     console.log(productos[pos]);
-    setDatos(productos[pos])
+    setTipo("editar")
     setVerFormulario(true)
+    setDatos(productos[pos])
+    document.getElementById("urlImagen").value = productos[pos].urlImagen
+    document.getElementById("nombre").value = productos[pos].nombre
+    document.getElementById("descripcion").value = productos[pos].descripcion
+    document.getElementById("características").value = productos[pos].características
+    document.getElementById("precio").value = productos[pos].precio
+    document.getElementById("stock").value = productos[pos].stock
+    
   }
       
     
@@ -71,7 +86,7 @@ const ProductosAdmin = () => {
             ))}
         </div>
         <div>
-        <Modales addFunction={agregarProducto} verFormulario={verFormulario} setVerFormulario={setVerFormulario} datos={datos} setDatos={setDatos} />  
+        <Modales addFunction={agregarProducto} verFormulario={verFormulario} setVerFormulario={setVerFormulario} datos={datos} setDatos={setDatos} tipo={tipo} updateFunction={editarProducto} />  
       </div>
     </div>
   )
