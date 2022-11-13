@@ -1,8 +1,10 @@
-import jsonProductos from "../data/bdProductos";
+//import jsonProductos from "../data/bdProductos";
 import React, { useEffect, useState } from "react";
 import NavbarCliente from "./NavBarCliente";
 
 const Productos = () => {
+
+  const jsonProductos = JSON.parse(localStorage.getItem('productos'));
 
   var carritoActual = localStorage.getItem('carrito');
   carritoActual = JSON.parse(carritoActual);  

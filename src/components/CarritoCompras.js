@@ -1,6 +1,6 @@
 
 import { Component } from "react";
-import jsonProductos from "../data/bdProductos";
+//import jsonProductos from "../data/bdProductos";
 import NavbarCliente from "./NavBarCliente";
 
 
@@ -10,6 +10,8 @@ class CarritoCompras extends Component {
 
 
   render() {
+
+    const jsonProductos = JSON.parse(localStorage.getItem('productos'));
 
     let carritoActual;
     let miCarrito = [];
