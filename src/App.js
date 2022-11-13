@@ -7,10 +7,18 @@ import Productos from "./components/Productos";
 import ProductosAdmin from "./components/ProductosAdmin";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index"
+import jsonProductos from "./data/bdProductos";
 
 
 class App extends Component {
+
+  
+
   render() {
+    const productos = localStorage.getItem('productos')
+    if (!productos)
+      localStorage.setItem('productos',JSON.stringify(jsonProductos));
+
     return (
       <div>
         
