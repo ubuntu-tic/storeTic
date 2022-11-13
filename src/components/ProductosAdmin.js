@@ -8,6 +8,10 @@ const ProductosAdmin = () => {
 
   const listadoProductos = JSON.parse(localStorage.getItem('productos'));
   const [productos, setProductos] = useState(listadoProductos)
+  const [datos, setDatos] = useState({})
+
+  
+  const [verFormulario, setVerFormulario] = useState(false)
 
   const eliminar = (element) => {
    //alert("Eliminado articulo con id: " + id);
@@ -33,8 +37,12 @@ const ProductosAdmin = () => {
     window.location.reload()
   }
 
-  const editar = (id) => {
-    alert("Editar producto con id: " + id);
+  const editar = (element) => {
+    const pos = element.target.getAttribute("data-index");
+    const id = element.target.getAttribute("data-id");
+    console.log(productos[pos]);
+    setDatos(productos[pos])
+    setVerFormulario(true)
   }
       
     
@@ -57,13 +65,13 @@ const ProductosAdmin = () => {
                     <div> <p className="card-text">stock: {item.stock} unidades disponibles</p></div>
                         
                 </div> 
-                  <button type="button" className="btn btn-warning" onClick={editar}>Editar 🖊️</button>
+                  <button type="button" className="btn btn-warning" data-id={item.id} data-index={pos} onClick={editar}>Editar 🖊️</button>
                   <button type="button" className="btn btn-danger" data-id={item.id} data-index={pos} onClick={eliminar}>Eliminar 🗑️</button>
                 </div>
             ))}
         </div>
         <div>
-        <Modales addFunction={agregarProducto}/>  
+        <Modales addFunction={agregarProducto} verFormulario={verFormulario} setVerFormulario={setVerFormulario} datos={datos} setDatos={setDatos} />  
       </div>
     </div>
   )

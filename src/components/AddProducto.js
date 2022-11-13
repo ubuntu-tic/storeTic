@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-function AddProducto({addFunction,setVerFormulario}) {
+function AddProducto({addFunction,setVerFormulario,datos,setDatos}) {
 
-    const [datos, setDatos] = useState({})
+
 
 
     const actualizarDatos =  function (element) {
