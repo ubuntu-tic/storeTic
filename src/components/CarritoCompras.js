@@ -46,11 +46,20 @@ class CarritoCompras extends Component {
       return "$ " + contador;
     };
 
-    this.eliminar = function (id) {
+    this.eliminar = function (id,cantidad) {
       console.log(carritoActual[id]);
       carritoActual[id] = 0;
       localStorage.setItem('carrito',JSON.stringify(carritoActual));
       this.listarProductos();
+
+      let tempProductos = jsonProductos;
+      tempProductos.forEach((item,pos) => {
+        if (item.id == id)
+          tempProductos[pos].stock += cantidad
+      })      
+
+      localStorage.setItem('productos',JSON.stringify(tempProductos));
+
       window.location.href=window.location.href
       
     }
@@ -81,7 +90,7 @@ class CarritoCompras extends Component {
                 <td>{item.nombre}</td>
                 <td>{`$ ${item.precio}`}</td>
                 <td>{`$ ${item.precio*item.cantidad}`}</td>
-                <td><button className="btn btn-danger" onClick={() => {this.eliminar(item.id)}}>eliminar</button></td>
+                <td><button className="btn btn-danger" onClick={() => {this.eliminar(item.id, item.cantidad)}}>eliminar</button></td>
               </tr>
             ))}
             <tr className="tabla-total">

@@ -5,6 +5,7 @@ import NavbarCliente from "./NavBarCliente";
 const Productos = () => {
 
   const jsonProductos = JSON.parse(localStorage.getItem('productos'));
+  const [productos, setProductos] = useState(jsonProductos)
 
   var carritoActual = localStorage.getItem('carrito');
   carritoActual = JSON.parse(carritoActual);  
@@ -15,15 +16,32 @@ const Productos = () => {
   const agregarCarrito =  function (event) {
     event.preventDefault();
 
-    setCarrito(carritoActual);
-    if(carrito && carrito[event.target.idprod.value]) {
-      setCarrito({...carrito,[event.target.idprod.value]:parseInt(carrito[event.target.idprod.value]) + parseInt(event.target.cantidad.value)})
-    } else {
-      setCarrito({...carrito,[event.target.idprod.value]:parseInt(event.target.cantidad.value)})
-    }
-    
-    document.getElementById("cantidad_"+event.target.idprod.value).value = ""
 
+    let tempProductos = productos;
+    let hayStock = false;
+    tempProductos.forEach((item,pos) => {
+      if (item.id == event.target.idprod.value)
+        if (tempProductos[pos].stock >= parseInt(event.target.cantidad.value)) {
+          tempProductos[pos].stock -= parseInt(event.target.cantidad.value) 
+          hayStock = true;
+        }
+    })
+    if (hayStock) {
+      localStorage.setItem('productos',JSON.stringify(tempProductos));
+      console.log("Antes: ",tempProductos);
+      setProductos(tempProductos)    
+
+      setCarrito(carritoActual);
+      if(carrito && carrito[event.target.idprod.value]) {
+        setCarrito({...carrito,[event.target.idprod.value]:parseInt(carrito[event.target.idprod.value]) + parseInt(event.target.cantidad.value)})
+      } else {
+        setCarrito({...carrito,[event.target.idprod.value]:parseInt(event.target.cantidad.value)})
+      }
+      
+      document.getElementById("cantidad_"+event.target.idprod.value).value = ""
+    } else {
+      alert("No hay stock suficiente");
+    }
   } 
 
   useEffect(() => {
