@@ -79,10 +79,12 @@ const ProductosAdmin = () => {
                     </div>
                     <div> <p className="card-text">stock: {item.stock} unidades disponibles</p></div>
                         
-                </div> 
+                </div>
+                <div className="card-footer"> 
                 <div className="btn-group" role="group" aria-label="Basic example"> 
                       <button type="button" className="btn btn-warning" data-id={item.id} data-index={pos} onClick={editar}>Editar 🖊️</button>
                       <button type="button" className="btn btn-danger" data-id={item.id} data-index={pos} onClick={eliminar}>Eliminar 🗑️</button>
+                </div>
                 </div>
                 </div>
             ))}

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class NavbarCliente extends Component {
     render() { 
         return ( 
-            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary" >
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">Cleaning StoreTic</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
