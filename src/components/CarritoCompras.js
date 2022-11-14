@@ -105,6 +105,8 @@ class CarritoCompras extends Component {
 
           </tbody>
         </table>
+        <button type="submit" className="btn btn-outline-success">Confirmar Compra</button>
+        <button type="reset" className="btn btn-outline-danger ">Cancelar Compra</button>
       </>
     );
   }

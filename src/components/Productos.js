@@ -40,7 +40,7 @@ const Productos = () => {
       
       document.getElementById("cantidad_"+event.target.idprod.value).value = ""
     } else {
-      alert("No hay stock suficiente");
+      alert("No hay ha indicado una cantidad valida para este articulo");
     }
   } 
 
@@ -69,10 +69,12 @@ const Productos = () => {
                 </div>
                   <label htmlFor="cantidad" className="form-label">Cantidad</label>
                   <div className="inp_cantidad">
-                    <input name="cantidad"  type="number" id={"cantidad_"+item.id}  className="card-cantidad" /><br/>
-                    <button type="submit" className="btn btn-secondary">Agregar ✅</button>
+                  
+                    <input name="cantidad"  type="number" id={"cantidad_"+item.id} placeholder= "0" className="card-cantidad" />
+                    <button type="submit" className='btn btn-success m-2'>Agregar ✅</button>
                     <input type="hidden" name="idprod" value={item.id} />
-                    </div>
+                 
+                  </div>
                 </div>
             </form>
             ))}
