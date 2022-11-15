@@ -19,6 +19,11 @@ class App extends Component {
     if (!productos)
       localStorage.setItem('productos',JSON.stringify(jsonProductos));
 
+      
+    const ventas = localStorage.getItem('ventas')
+    if (!ventas)
+      localStorage.setItem('ventas',JSON.stringify([]));
+
     return (
       <div>
         
