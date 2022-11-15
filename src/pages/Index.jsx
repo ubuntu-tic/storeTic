@@ -6,7 +6,7 @@ function Index() {
       <Navbar/>
       <div className="app container">
         <div className="jumbotron">
-          <h1 className="lead text-center">Bienvenidos a Clean Storetic</h1>
+          <h1 className="lead text-center">Bienvenidos a Cleaning Storetic</h1>
         </div>
       </div>
     </>

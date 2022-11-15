@@ -5,7 +5,8 @@ const jsonProductos = [
       "nombre": "Jabon Rey",
       "descripcion": "Jabón azul en barra x3 unidades",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-      "precio": 2350
+      "precio": 2350,
+      "stock": 10
     },
     {
       "id": 2,
@@ -13,7 +14,8 @@ const jsonProductos = [
       "nombre": "Detergente FAB en polvo",
       "descripcion": "Detergente en polvo multi uso",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-      "precio": 23350
+      "precio": 23350,
+      "stock": 100
     },
     {
       "id": 3,
@@ -21,7 +23,8 @@ const jsonProductos = [
       "nombre": "Clorox",
       "descripcion": "Blanqueador ropa aroma floral",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-      "precio": 16050
+      "precio": 16050,
+      "stock": 36
     },
     {
       "id": 4,
@@ -29,7 +32,8 @@ const jsonProductos = [
       "nombre": "Esponja eterna",
       "descripcion": "Esponja doble uso",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-      "precio": 4760
+      "precio": 4760,
+      "stock": 40
     },
     {
       "id": 5,
@@ -37,7 +41,8 @@ const jsonProductos = [
       "nombre": "Bonaropa",
       "descripcion": "Detergente liquido para ropa oscura",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-      "precio": 6450
+      "precio": 6450,
+      "stock": 20
     },
     {
       "id": 6,
@@ -45,7 +50,8 @@ const jsonProductos = [
       "nombre": "Polvo abrasivo brilla king",
       "descripcion": "polvo abrasivo para limpieza",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-      "precio": 2150
+      "precio": 2150,
+      "stock": 50
     },
     {
       "id": 7,
@@ -53,7 +59,8 @@ const jsonProductos = [
       "nombre": "Limpia vidrios brilla king",
       "descripcion": "Liquido limpia vidrios brilla king",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-      "precio": 2990
+      "precio": 2990,
+      "stock": 30
     },
     {
       "id": 8,
@@ -61,7 +68,8 @@ const jsonProductos = [
       "nombre": "Lavaloza brilla king",
       "descripcion": "lavaloza liquido brilla king",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-      "precio": 2550
+      "precio": 2550,
+      "stock": 21
     },
     {
       "id": 9,
@@ -69,7 +77,8 @@ const jsonProductos = [
       "nombre": "Limpia Ya",
       "descripcion": "Detergente liquido limpia ya 1000 ml",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-      "precio": 4840
+      "precio": 4840,
+      "stock": 10
     },
     {
       "id": 10,
@@ -77,8 +86,9 @@ const jsonProductos = [
       "nombre": "Dersa",
       "descripcion": "Suavizante manzana durazno",
       "características": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-      "precio": 29650
+      "precio": 29650,
+      "stock": 17
     }
-        ]
+  ]
 
-    export default jsonProductos;
+export default jsonProductos;

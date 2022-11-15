@@ -1,6 +1,6 @@
 
 import { Component } from "react";
-import jsonProductos from "../data/bdProductos";
+//import jsonProductos from "../data/bdProductos";
 import NavbarCliente from "./NavBarCliente";
 
 
@@ -10,6 +10,8 @@ class CarritoCompras extends Component {
 
 
   render() {
+
+    const jsonProductos = JSON.parse(localStorage.getItem('productos'));
 
     let carritoActual;
     let miCarrito = [];
@@ -44,11 +46,20 @@ class CarritoCompras extends Component {
       return "$ " + contador;
     };
 
-    this.eliminar = function (id) {
+    this.eliminar = function (id,cantidad) {
       console.log(carritoActual[id]);
       carritoActual[id] = 0;
       localStorage.setItem('carrito',JSON.stringify(carritoActual));
       this.listarProductos();
+
+      let tempProductos = jsonProductos;
+      tempProductos.forEach((item,pos) => {
+        if (item.id == id)
+          tempProductos[pos].stock += cantidad
+      })      
+
+      localStorage.setItem('productos',JSON.stringify(tempProductos));
+
       window.location.href=window.location.href
       
     }
@@ -58,7 +69,7 @@ class CarritoCompras extends Component {
     return (
       <>      
       <NavbarCliente/>
-      <a>Tabla de carrito</a>
+      <h1>Carrito de Compras</h1>
         <table className="table table-hover tabla">
           <thead>
             <tr className="tabla-encabezado">
@@ -79,7 +90,7 @@ class CarritoCompras extends Component {
                 <td>{item.nombre}</td>
                 <td>{`$ ${item.precio}`}</td>
                 <td>{`$ ${item.precio*item.cantidad}`}</td>
-                <td><button className="btn btn-danger" onClick={() => {this.eliminar(item.id)}}>eliminar</button></td>
+                <td><button className="btn btn-danger" onClick={() => {this.eliminar(item.id, item.cantidad)}}>eliminar</button></td>
               </tr>
             ))}
             <tr className="tabla-total">
@@ -94,6 +105,8 @@ class CarritoCompras extends Component {
 
           </tbody>
         </table>
+        <button type="submit" className="btn btn-outline-success">Confirmar Compra</button>
+        <button type="reset" className="btn btn-outline-danger ">Cancelar Compra</button>
       </>
     );
   }
