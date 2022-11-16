@@ -12,6 +12,7 @@ class CarritoCompras extends Component {
   render() {
 
     const jsonProductos = JSON.parse(localStorage.getItem('productos'));
+    const jsonVentas = JSON.parse(localStorage.getItem('ventas'));
 
     let carritoActual;
     let miCarrito = [];
@@ -36,21 +37,50 @@ class CarritoCompras extends Component {
     this.listarProductos()
 
     
+    this.confirmarCompra = function () {
 
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      let mm = today.getMonth() + 1; // Months start at 0!
+      let dd = today.getDate();
+      
+      if (dd < 10) dd = '0' + dd;
+      if (mm < 10) mm = '0' + mm;
+      
+      const formattedToday = dd + '/' + mm + '/' + yyyy;      
+      jsonVentas.push({
+        fecha:formattedToday,
+        idVenta:jsonVentas.length + 1,
+        valor:totalizar(miCarrito)
+      });
+      localStorage.setItem('ventas',JSON.stringify(jsonVentas));
+      localStorage.setItem('carrito',"{}");
+      window.location.href=window.location.href
+    }
     
-    this.totalizar = function (arreglo) {
+    
+    this.cancelarCompra = function () {
+      miCarrito.map((item) => {
+        console.log(item)
+        eliminar(item.id,item.cantidad)
+      })
+      alert("Compra cancelada")
+      window.location.href=window.location.href
+    }
+    
+    const totalizar = function (arreglo) {
       let contador = 0;
       for (const elemento of arreglo) {
        contador += Number(elemento.precio * elemento.cantidad);
       }
-      return "$ " + contador;
+      return contador;
     };
 
-    this.eliminar = function (id,cantidad) {
+    const eliminar = function (id,cantidad) {
       console.log(carritoActual[id]);
       carritoActual[id] = 0;
       localStorage.setItem('carrito',JSON.stringify(carritoActual));
-      this.listarProductos();
+      //this.listarProductos();
 
       let tempProductos = jsonProductos;
       tempProductos.forEach((item,pos) => {
@@ -90,7 +120,7 @@ class CarritoCompras extends Component {
                 <td>{item.nombre}</td>
                 <td>{`$ ${item.precio}`}</td>
                 <td>{`$ ${item.precio*item.cantidad}`}</td>
-                <td><button className="btn btn-danger" onClick={() => {this.eliminar(item.id, item.cantidad)}}>eliminar</button></td>
+                <td><button className="btn btn-danger" onClick={() => {eliminar(item.id, item.cantidad)}}>eliminar</button></td>
               </tr>
             ))}
             <tr className="tabla-total">
@@ -99,14 +129,14 @@ class CarritoCompras extends Component {
               <td></td>
                 
                 <td></td>
-                <td>{this.totalizar(miCarrito)}</td>
+                <td>${totalizar(miCarrito)}</td>
                 <td></td>
             </tr>
 
           </tbody>
         </table>
-        <button type="submit" className="btn btn-outline-success">Confirmar Compra</button>
-        <button type="reset" className="btn btn-outline-danger ">Cancelar Compra</button>
+        <button type="submit" className="btn btn-outline-success" onClick={this.confirmarCompra}>Confirmar Compra</button>
+        <button type="reset" className="btn btn-outline-danger " onClick={this.cancelarCompra}>Cancelar Compra</button>
       </>
     );
   }
