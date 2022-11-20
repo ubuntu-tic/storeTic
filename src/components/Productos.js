@@ -1,6 +1,7 @@
 //import jsonProductos from "../data/bdProductos";
 import React, { useEffect, useState } from "react";
 import NavbarCliente from "./NavBarCliente";
+import { getProducts } from "./procesosProductos";
 
 const Productos = () => {
 
@@ -55,10 +56,10 @@ const Productos = () => {
       <NavbarCliente/>
       
       <div className="row  row-cols-md-5 g-0">
-        {productos.map((item) => (
+        {productos.map((item, pos) => (
        
             <form onSubmit={agregarCarrito} className="row  row-cols-md-1 g-0"> 
-              <div className="card">
+              <div className="card" key={pos}>
                 <div className="card-body">
                   <img src={item.urlImagen} width="100" className="card-img-top" alt={item.nombre}/>
                   <h5 className="card-title">Nombre: {item.nombre}</h5>

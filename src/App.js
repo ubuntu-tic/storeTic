@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import AddProducto from "./components/AddProducto";
 import CarritoCompras from "./components/CarritoCompras";
-import MiComponente from "./components/MiComponente";
+import Ventas from "./components/Ventas";
 import Productos from "./components/Productos";
 import ProductosAdmin from "./components/ProductosAdmin";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -31,7 +31,7 @@ class App extends Component {
           <Routes>
           <Route path="components/AddProducto" element={<AddProducto/>}/>
           <Route path="components/ProductosAdmin" element={<ProductosAdmin/>}/>
-          <Route path="components/MiComponente" element={<MiComponente/>}/>
+          <Route path="components/MiComponente" element={<Ventas/>}/>
           <Route path="components/CarritoCompras" element={<CarritoCompras/>}/>
           <Route path="components/Productos" element={<Productos/>}/>
           
