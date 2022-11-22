@@ -14,3 +14,11 @@ export const getVentaById = async (_id) => {
   return response.data;
 }
 
+
+export const confirmarCompra = async (venta) => {
+  const response = await axios.post(
+    `http://localhost:3000/ventas`,
+    venta
+  );
+  return response.data;
+}

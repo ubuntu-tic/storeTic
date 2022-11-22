@@ -1,7 +1,9 @@
 
+import { random } from "lodash";
 import { Component } from "react";
 //import jsonProductos from "../data/bdProductos";
 import NavbarCliente from "./NavBarCliente";
+import { confirmarCompra } from "./procesosVentas";
 
 
 
@@ -47,15 +49,15 @@ class CarritoCompras extends Component {
       if (dd < 10) dd = '0' + dd;
       if (mm < 10) mm = '0' + mm;
       
-      const formattedToday = dd + '/' + mm + '/' + yyyy;      
-      jsonVentas.push({
-        fecha:formattedToday,
-        idVenta:jsonVentas.length + 1,
-        valor:totalizar(miCarrito)
-      });
-      localStorage.setItem('ventas',JSON.stringify(jsonVentas));
+      //const formattedToday = dd + '/' + mm + '/' + yyyy;      
+      const formattedToday = yyyy + '-' + mm + '-' + dd;      
+      
       localStorage.setItem('carrito',"{}");
-      window.location.href=window.location.href
+      confirmarCompra({
+        fecha:formattedToday,
+        valor:totalizar(miCarrito)
+      })
+      //window.location.href=window.location.href
     }
     
     

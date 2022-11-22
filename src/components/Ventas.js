@@ -25,6 +25,20 @@ const MiComponente = () => {
       }
     };
 
+    const formatoFecha = function (fecha) {
+
+      const today = new Date(fecha);
+      const yyyy = today.getFullYear();
+      let mm = today.getMonth() + 1; // Months start at 0!
+      let dd = today.getDate();
+      
+      if (dd < 10) dd = '0' + dd;
+      if (mm < 10) mm = '0' + mm;
+      
+      const formattedToday = dd + '/' + mm + '/' + yyyy;      
+      return formattedToday
+    }
+
     return (
       <>
        <NavBar/>
@@ -41,8 +55,8 @@ const MiComponente = () => {
           <tbody>
             {ventas.map((item) => (
               <tr className="tabla-fila">
-                <th scope="row">{item.idVenta}</th>
-                <td>{item.fecha}</td>
+                <th scope="row">{item._id}</th>
+                <td>{formatoFecha(item.fecha)}</td>
                 <td>$ {`${item.valor}`}</td>
               </tr>
             ))}
