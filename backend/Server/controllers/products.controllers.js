@@ -1,3 +1,4 @@
+import { response } from "express";
 import Producto from "../models/products.models.js";
 
 export function get_data(_id) {
