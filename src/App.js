@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "./App.css";
 import AddProducto from "./components/AddProducto";
 import CarritoCompras from "./components/CarritoCompras";
@@ -10,11 +10,11 @@ import Index from "./pages/Index"
 import jsonProductos from "./data/bdProductos";
 
 
-class App extends Component {
 
-  
+function App () {
 
-  render() {
+
+   {
     const productos = localStorage.getItem('productos')
     if (!productos)
       localStorage.setItem('productos',JSON.stringify(jsonProductos));
@@ -27,18 +27,18 @@ class App extends Component {
     return (
       <div>
         
-        <Router>
-          <Routes>
-          <Route path="components/AddProducto" element={<AddProducto/>}/>
-          <Route path="components/ProductosAdmin" element={<ProductosAdmin/>}/>
-          <Route path="components/MiComponente" element={<Ventas/>}/>
-          <Route path="components/CarritoCompras" element={<CarritoCompras/>}/>
-          <Route path="components/Productos" element={<Productos/>}/>
-          
-          <Route path="/" element={<Index/>}/>
-          </Routes>
-        </Router>
-      </div>
+      <Router>
+        <Routes>
+        <Route path="components/AddProducto" element={<AddProducto/>}/>
+        <Route path="components/ProductosAdmin" element={<ProductosAdmin/>}/>
+        <Route path="components/MiComponente" element={<Ventas/>}/>
+        <Route path="components/CarritoCompras" element={<CarritoCompras/>}/>
+        <Route path="components/Productos" element={<Productos/>}/>
+        
+        <Route path="/" element={<Index/>}/>
+        </Routes>
+      </Router>
+    </div>
     );
   }
 }

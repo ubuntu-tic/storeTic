@@ -18,6 +18,7 @@ app.use(Express.json());
 app.use("/productos", productoRouter);
 app.use("/ventas", ventaRouter)
 app.use("/usuarios", usuarioRouter)
+app.use("/agregar", productoRouter);
 
 
 
