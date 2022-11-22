@@ -5,8 +5,19 @@ import { getProducts } from "./procesosProductos";
 
 const Productos = () => {
 
-  const jsonProductos = JSON.parse(localStorage.getItem('productos'));
-  const [productos, setProductos] = useState(jsonProductos)
+  const [productos, setProductos] = useState([])
+  
+  useEffect(() => {
+    getProducts().then((data) => {
+      setProductos(data);
+      console.log(data);
+    })
+  },[]);
+
+  
+
+
+  
 
   var carritoActual = localStorage.getItem('carrito');
   carritoActual = JSON.parse(carritoActual);  

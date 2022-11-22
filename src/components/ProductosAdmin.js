@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from "./NavBar";
 import Modales from "./Modales";
-import { getProducts } from "./procesosProductos";
+import { deleteProduct, getProducts } from "./procesosProductos";
 
 
 const ProductosAdmin = () => {
 
-  useEffect(() => {
-    getProducts().then((data) => {
-      setProductos(data);
-    })
-  });
-
-
   const [productos, setProductos] = useState([]);
   const [datos, setDatos] = useState({})
   const [tipo, setTipo] = useState("agregar")
+
+  useEffect(() => {
+    getProducts().then((data) => {
+      setProductos(data);
+      console.log(data);
+    })
+  },[]);
+
+
+
 
   
   const [verFormulario, setVerFormulario] = useState(false)
@@ -24,6 +27,7 @@ const ProductosAdmin = () => {
    //alert("Eliminado articulo con id: " + id);
    const pos = element.target.getAttribute("data-index");
    const id = element.target.getAttribute("data-id");
+   deleteProduct(id).then((data) => (console.log("producto eliminado"))).catch((error) => (console.log(error)));
    let productosTemp = productos.filter(item => item.id !== id);
    setProductos(productosTemp)
    
@@ -77,7 +81,7 @@ const ProductosAdmin = () => {
       <Navbar/>
       <h1>Gestión de Productos</h1>
     <div className="row  row-cols-md-6 g-1">
-        {productos.map((item,pos) => (
+        {productos&&productos.map((item,pos) => (
                 <div className="card" key={pos}>
                     <div className="card-body">
                       <div>

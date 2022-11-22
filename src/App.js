@@ -14,8 +14,8 @@ import jsonProductos from "./data/bdProductos";
 function App () {
 
 
-   {
-    const productos = localStorage.getItem('productos')
+   
+    /*const productos = localStorage.getItem('productos')
     if (!productos)
       localStorage.setItem('productos',JSON.stringify(jsonProductos));
 
@@ -23,7 +23,7 @@ function App () {
     const ventas = localStorage.getItem('ventas')
     if (!ventas)
       localStorage.setItem('ventas',JSON.stringify([]));
-
+*/
     return (
       <div>
         
@@ -41,6 +41,6 @@ function App () {
     </div>
     );
   }
-}
+
 
 export default App;
