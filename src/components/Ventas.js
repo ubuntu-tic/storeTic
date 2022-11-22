@@ -1,20 +1,17 @@
 import { Component } from "react";
 //import jsonVentas from "../data/bdVentas";
 import NavBar from "./NavBar";
-import { getVentas } from "./procesosVentas";
-
-
+import { getVentas } from "../api/ventas";
 
 class MiComponente extends Component {
   render() {
-
-    const jsonVentas = JSON.parse(localStorage.getItem('ventas'));
+    const jsonVentas = JSON.parse(localStorage.getItem("ventas"));
 
     this.totalizar = function (arreglo) {
       if (arreglo) {
         let contador = 0;
         for (const elemento of arreglo) {
-        contador += Number(elemento.valor);
+          contador += Number(elemento.valor);
         }
         return "$ " + contador;
       }
@@ -22,10 +19,9 @@ class MiComponente extends Component {
 
     return (
       <>
-       <NavBar/>
-       <h1>Lista de Ventas</h1>
+        <NavBar />
+        <h1>Lista de Ventas</h1>
         <table className="table table-hover tabla">
-          
           <thead>
             <tr className="tabla-encabezado">
               <th scope="col">Id_venta</th>
@@ -46,13 +42,11 @@ class MiComponente extends Component {
               <td></td>
               <td>{this.totalizar(jsonVentas)}</td>
             </tr>
-
           </tbody>
         </table>
       </>
     );
   }
 }
-
 
 export default MiComponente;
