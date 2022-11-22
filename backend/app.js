@@ -24,5 +24,4 @@ app.use("/agregar", productoRouter);
 
 
 
-
 export default app;
