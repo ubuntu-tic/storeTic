@@ -6,7 +6,6 @@ import { deleteProduct, getProducts, addProduct, updateProduct } from "./proceso
 
 const ProductosAdmin = () => {
 
-  const [verFormulario, setVerFormulario] = useState(false)
   const [productos, setProductos] = useState([]);
   const [datos, setDatos] = useState({})
   const [tipo, setTipo] = useState("agregar")
@@ -19,6 +18,25 @@ const ProductosAdmin = () => {
   },[]);
 
 
+
+
+  
+  const [verFormulario, setVerFormulario] = useState(false)
+
+  const eliminar = (element) => {
+   //alert("Eliminado articulo con id: " + id);
+   const pos = element.target.getAttribute("data-index");
+   const id = element.target.getAttribute("data-id");
+   deleteProduct(id).then((data) => (console.log("producto eliminado"))).catch((error) => (console.log(error)));
+   let productosTemp = productos.filter(item => item.id !== id);
+   setProductos(productosTemp)
+   window.location.reload()
+   
+  }
+
+  
+
+  
   const agregarProducto = (datos) => {
     //alert("Agregar producto con datos: " + datos);
     datos.id = productos.length + 1
@@ -37,16 +55,13 @@ const ProductosAdmin = () => {
     window.location.reload()
   }
 
-  
-  const eliminar = (element) => {
-    //alert("Eliminado articulo con id: " + id);
-    const pos = element.target.getAttribute("data-index");
-    const id = element.target.getAttribute("data-id");
-    let productosTemp = productos.filter(item => item.id !== id);
-    setProductos(productosTemp)
-    
-   }
 
+
+
+
+
+
+  
 
   const editar = (element) => {
     const pos = element.target.getAttribute("data-index");
@@ -87,7 +102,7 @@ const ProductosAdmin = () => {
                 <div className="card-footer"> 
                 <div className="btn-group" role="group" aria-label="Basic example"> 
                       <button type="button" className="btn btn-warning" data-id={item.id} data-index={pos} onClick={editar}>Editar 🖊️</button>
-                      <button type="button" className="btn btn-danger" data-id={item.id} data-index={pos} onClick={eliminar}>Eliminar 🗑️</button>
+                      <button type="button" className="btn btn-danger" data-id={item._id} data-index={pos} onClick={eliminar}>Eliminar 🗑️</button>
                 </div>
                 </div>
                 </div>
