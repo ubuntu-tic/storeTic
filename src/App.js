@@ -8,20 +8,11 @@ import ProductosAdmin from "./components/ProductosAdmin";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index"
 import jsonProductos from "./data/bdProductos";
-import ProtectedRoute from "components/ProtectedRoute";
+
 
 
 function App () {
 
-  const [user, setUser] = useState(null)
-  const login = () => {
-    setUser({
-      id: 1,
-      name: "Duvan",
-      rol: ["admin"]
-    })
-  }
-  const logout = () => setUser (null)
 
    {
     const productos = localStorage.getItem('productos')
@@ -36,18 +27,18 @@ function App () {
     return (
       <div>
         
-        <Router>
-          <Routes>
-          <Route path="components/AddProducto" element={<AddProducto/>}/>
-          <Route path="components/ProductosAdmin" element={<ProductosAdmin/>}/>
-          <Route path="components/MiComponente" element={<MiComponente/>}/>
-          <Route path="components/CarritoCompras" element={<CarritoCompras/>}/>
-          <Route path="components/Productos" element={<Productos/>}/>
-          
-          <Route path="/" element={<Index/>}/>
-          </Routes>
-        </Router>
-      </div>
+      <Router>
+        <Routes>
+        <Route path="components/AddProducto" element={<AddProducto/>}/>
+        <Route path="components/ProductosAdmin" element={<ProductosAdmin/>}/>
+        <Route path="components/MiComponente" element={<Ventas/>}/>
+        <Route path="components/CarritoCompras" element={<CarritoCompras/>}/>
+        <Route path="components/Productos" element={<Productos/>}/>
+        
+        <Route path="/" element={<Index/>}/>
+        </Routes>
+      </Router>
+    </div>
     );
   }
 }

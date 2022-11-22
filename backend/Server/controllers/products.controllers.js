@@ -1,3 +1,4 @@
+import { response } from "express";
 import Producto from "../models/products.models.js";
 
 export function get_data(_id) {
@@ -36,5 +37,27 @@ export const todos_productos = async (req, res) => {
         console.log(error.message);
         return res.status(500).json({message: 'Error en el servidor'});
     }
+}
+
+export const AddProducto = async (req, res) => {
+    try { 
+        const {urlImagen, nombre, descripcion, características, precio, stock} = req.body;
+        const newProducto = new Producto ({
+            urlImagen: urlImagen,
+            nombre: nombre,
+            descripcion: descripcion,
+            características: características,
+            precio: precio,
+            stock: stock
+})
+        await newProducto.save();
+        res.json({message: "producto creado"})
+ 
+
+} catch (error) {
+    console.log(error.message);
+    return res.status(500).json({message: 'Error en el servidor'});
+}
+    
 }
 
