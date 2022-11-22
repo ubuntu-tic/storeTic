@@ -6,6 +6,13 @@ import { getProducts } from "./procesosProductos";
 
 const ProductosAdmin = () => {
 
+  useEffect(() => {
+    getProducts().then((data) => {
+      setProductos(data);
+    })
+  });
+
+
   const [productos, setProductos] = useState([]);
   const [datos, setDatos] = useState({})
   const [tipo, setTipo] = useState("agregar")
@@ -22,11 +29,7 @@ const ProductosAdmin = () => {
    
   }
 
-  useEffect(() => {
-    getProducts().then((data) => {
-      setProductos(data);
-    })
-});
+  
 
   
   const agregarProducto = (datos) => {
