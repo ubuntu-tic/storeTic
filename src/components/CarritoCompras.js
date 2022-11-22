@@ -25,7 +25,7 @@ class CarritoCompras extends Component {
           if (carritoActual[item] > 0) {
             console.log(item);
             miCarrito.push({
-              ...jsonProductos.find(obj => obj.id == item),
+              ...jsonProductos.find(obj => obj._id == item),
               cantidad:carritoActual[item]
             })
           }
@@ -62,7 +62,7 @@ class CarritoCompras extends Component {
     this.cancelarCompra = function () {
       miCarrito.map((item) => {
         console.log(item)
-        eliminar(item.id,item.cantidad)
+        eliminar(item._id,item.cantidad)
       })
       alert("Compra cancelada")
       window.location.href=window.location.href
@@ -84,7 +84,7 @@ class CarritoCompras extends Component {
 
       let tempProductos = jsonProductos;
       tempProductos.forEach((item,pos) => {
-        if (item.id == id)
+        if (item._id == id)
           tempProductos[pos].stock += cantidad
       })      
 
@@ -120,7 +120,7 @@ class CarritoCompras extends Component {
                 <td>{item.nombre}</td>
                 <td>{`$ ${item.precio}`}</td>
                 <td>{`$ ${item.precio*item.cantidad}`}</td>
-                <td><button className="btn btn-danger" onClick={() => {eliminar(item.id, item.cantidad)}}>eliminar</button></td>
+                <td><button className="btn btn-danger" onClick={() => {eliminar(item._id, item.cantidad)}}>eliminar</button></td>
               </tr>
             ))}
             <tr className="tabla-total">

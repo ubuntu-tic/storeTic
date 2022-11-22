@@ -13,9 +13,7 @@ import jsonProductos from "./data/bdProductos";
 
 function App () {
 
-
-   
-    /*const productos = localStorage.getItem('productos')
+    /*const productos = getProducts();
     if (!productos)
       localStorage.setItem('productos',JSON.stringify(jsonProductos));
 

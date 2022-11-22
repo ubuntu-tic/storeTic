@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from "./NavBar";
 import Modales from "./Modales";
-import { deleteProduct, getProducts } from "./procesosProductos";
+import { deleteProduct, getProducts, addProduct, updateProduct } from "./procesosProductos";
 
 
 const ProductosAdmin = () => {
 
+  const [verFormulario, setVerFormulario] = useState(false)
   const [productos, setProductos] = useState([]);
   const [datos, setDatos] = useState({})
   const [tipo, setTipo] = useState("agregar")
@@ -18,46 +19,34 @@ const ProductosAdmin = () => {
   },[]);
 
 
-
-
-  
-  const [verFormulario, setVerFormulario] = useState(false)
-
-  const eliminar = (element) => {
-   //alert("Eliminado articulo con id: " + id);
-   const pos = element.target.getAttribute("data-index");
-   const id = element.target.getAttribute("data-id");
-   deleteProduct(id).then((data) => (console.log("producto eliminado"))).catch((error) => (console.log(error)));
-   let productosTemp = productos.filter(item => item.id !== id);
-   setProductos(productosTemp)
-   
-  }
-
-  
-
-  
   const agregarProducto = (datos) => {
     //alert("Agregar producto con datos: " + datos);
     datos.id = productos.length + 1
     let tempProductos = productos;
     tempProductos.push(datos)
     localStorage.setItem('productos',JSON.stringify(productos));
+    addProduct(datos)
     window.location.reload()
   }
   const editarProducto = (datos) => {
+    console.log(datos);
     let tempProductos = productos;
     setProductos(tempProductos)
     localStorage.setItem('productos',JSON.stringify(tempProductos));
+    updateProduct(datos._id,datos)
     window.location.reload()
   }
 
-
-
-
-
-
-
   
+  const eliminar = (element) => {
+    //alert("Eliminado articulo con id: " + id);
+    const pos = element.target.getAttribute("data-index");
+    const id = element.target.getAttribute("data-id");
+    let productosTemp = productos.filter(item => item.id !== id);
+    setProductos(productosTemp)
+    
+   }
+
 
   const editar = (element) => {
     const pos = element.target.getAttribute("data-index");
@@ -66,6 +55,7 @@ const ProductosAdmin = () => {
     setTipo("editar")
     setVerFormulario(true)
     setDatos(productos[pos])
+    document.getElementById("urlImagen").value = productos[pos].urlImagen
     document.getElementById("nombre").value = productos[pos].nombre
     document.getElementById("descripcion").value = productos[pos].descripcion
     document.getElementById("características").value = productos[pos].características

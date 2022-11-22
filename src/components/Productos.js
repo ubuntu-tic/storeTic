@@ -14,12 +14,7 @@ const Productos = () => {
     })
   },[]);
 
-  
-
-
-  
-
-  var carritoActual = localStorage.getItem('carrito');
+  let carritoActual = localStorage.getItem('carrito');
   carritoActual = JSON.parse(carritoActual);  
 
   const [carrito, setCarrito] = useState(carritoActual)
@@ -32,8 +27,10 @@ const Productos = () => {
     let tempProductos = productos;
     let hayStock = false;
     tempProductos.forEach((item,pos) => {
-      if (item.id == event.target.idprod.value)
+      
+      if (item._id == event.target.idprod.value)
         if (tempProductos[pos].stock >= parseInt(event.target.cantidad.value)) {
+          console.log(event.target.idprod.value)
           tempProductos[pos].stock -= parseInt(event.target.cantidad.value) 
           hayStock = true;
         }
@@ -84,9 +81,9 @@ const Productos = () => {
                   <label htmlFor="cantidad" className="form-label">Cantidad</label>
                   <div className="inp_cantidad">
                   
-                    <input name="cantidad"  type="number" id={"cantidad_"+item.id} placeholder= "0" className="card-cantidad" />
+                    <input name="cantidad"  type="number" id={"cantidad_"+item._id} placeholder= "0" className="card-cantidad" />
                     <button type="submit" className='btn btn-success m-2'>Agregar ✅</button>
-                    <input type="hidden" name="idprod" value={item.id} />
+                    <input type="hidden" name="idprod" value={item._id} />
                   </div>
                   </div>
                 </div>
