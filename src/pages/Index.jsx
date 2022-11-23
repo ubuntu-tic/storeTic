@@ -4,7 +4,7 @@ function Index() {
   return (
     <>
       <Navbar/>
-      <div >
+      <div className="app container">
         <div className="jumbotron">
           <h1 className="lead text-center">Bienvenidos a Cleaning Storetic</h1>
         </div>

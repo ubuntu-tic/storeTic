@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index"
 import jsonProductos from "./data/bdProductos";
 import Login from "pages/Login";
+import  Register  from "pages/Register";
 
 
 
@@ -37,6 +38,7 @@ function App () {
         <Route path="components/CarritoCompras" element={<CarritoCompras/>}/>
         <Route path="components/Productos" element={<Productos/>}/>
         <Route path="pages/Login" element={<Login/>}/>
+        <Route path="pages/Register" element={<Register/>}/>
         
         <Route path="/" element={<Index/>}/>
         </Routes>

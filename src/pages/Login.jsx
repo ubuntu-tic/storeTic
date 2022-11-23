@@ -1,6 +1,7 @@
 import React from 'react'
 import "../login.css";
 import {Link} from "react-router-dom"
+import "./Register"
 const login = () => {
   return (
     <div id="contenedor">
@@ -25,7 +26,7 @@ const login = () => {
                     <div classname="pie-form">
                         
                         <Link className="login button" to="/">¿Perdiste tu contraseña?</Link>
-                        <Link className="login button" to="/">¿No tienes Cuenta? Registrate</Link>
+                        <Link className="login button" to="/pages/Register">¿No tienes Cuenta? Registrate </Link>
                        
                     </div>
                 </div>
