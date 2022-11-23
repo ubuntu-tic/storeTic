@@ -38,3 +38,23 @@ export const todas_ventas = async (req, res) => {
     }
 }
 
+export const ConfirmarCompra = async (req, res) => {
+    try { 
+        const {idVenta, fecha, valor} = req.body;
+        const newVenta = new Venta ({
+            idVenta: idVenta,
+            fecha: fecha,
+            valor: valor
+        })
+        await newVenta.save();
+        res.json({message: "venta creada"})
+ 
+
+} catch (error) {
+    console.log("ERRORRRRR")
+    console.log(error.message);
+    return res.status(500).json({message: 'Error en el servidor'});
+}
+    
+}
+

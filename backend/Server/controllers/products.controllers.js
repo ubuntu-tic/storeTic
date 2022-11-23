@@ -39,6 +39,7 @@ export const todos_productos = async (req, res) => {
     }
 }
 
+
 export const AddProducto = async (req, res) => {
     try { 
         const {urlImagen, nombre, descripcion, características, precio, stock} = req.body;
@@ -61,3 +62,35 @@ export const AddProducto = async (req, res) => {
     
 }
 
+
+export const deleteProducto = async (req, res) => {
+    try {
+        const producto = await Producto.findByIdAndRemove(req.params._id);
+        if (!producto) {
+            return res.status(404).json({message: 'Producto no encontrado'});
+        } else {
+            return res.status(200).json({message: 'Producto eliminado'});
+        }
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({message: 'Error en el servidor'});
+    }
+}
+
+
+
+export const updateProducto = async (req, res) => {
+    try{
+        const {urlImagen, nombre, descripcion, características, precio, stock} = req.body;
+        const newProducto = {urlImagen, nombre, descripcion, características, precio, stock};
+        const producto = await Producto.findByIdAndUpdate(req.params._id, newProducto, {new: true});
+        if (!producto) {
+            return res.status(404).json({message: 'Producto no encontrado'});
+        } else {
+            return res.status(200).json({message: 'Producto actualizado'});
+        }
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({message: 'Error en el servidor'});
+    }
+}

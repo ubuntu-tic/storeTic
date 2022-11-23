@@ -27,8 +27,8 @@ function AddProducto({addFunction,setVerFormulario,datos,setDatos,tipo,updateFun
     <div>
         
         <form className='addPRoducto' onSubmit={manejarSubmit}>
-        {tipo == "editar" && <h1>Editar Producto</h1> }
-        {tipo != "editar" && <h1>Agregar Producto</h1> }
+        {tipo === "editar" && <h1>Editar Producto</h1> }
+        {tipo !== "editar" && <h1>Agregar Producto</h1> }
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="urlImagen" className="form-label mt-3">Url Imagen</label>

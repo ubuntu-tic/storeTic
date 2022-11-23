@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const Usuario = mongoose.model('usuarios', {
 
  
-                "identificacion": {type: Number, required: true},
+                "identificaciónn": {type: Number, required: true},
                 "nombre": {type: String, required: true},
                 "apellido": {type: String, required: true},
                 "correo": {type: String, required: true},
@@ -23,7 +23,7 @@ const Usuario = mongoose.model('usuarios', {
                     "numero": {type: Number}
                   }
                 ],
-                "rol": {type: Boolean},
+                "Admin": {type: Boolean},
             }
 );
 

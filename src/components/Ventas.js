@@ -1,16 +1,21 @@
-import { Component } from "react";
+import React, { useEffect, useState } from "react";
 //import jsonVentas from "../data/bdVentas";
 import NavBar from "./NavBar";
 import { getVentas } from "./procesosVentas";
 
 
+const MiComponente = () => {
 
-class MiComponente extends Component {
-  render() {
+  const [ventas, setVentas] = useState([])
+  
+  useEffect(() => {
+    getVentas().then((data) => {
+      setVentas(data);
+    })
+  },[]);
 
-    const jsonVentas = JSON.parse(localStorage.getItem('ventas'));
 
-    this.totalizar = function (arreglo) {
+    const totalizar = function (arreglo) {
       if (arreglo) {
         let contador = 0;
         for (const elemento of arreglo) {
@@ -19,6 +24,20 @@ class MiComponente extends Component {
         return "$ " + contador;
       }
     };
+
+    const formatoFecha = function (fecha) {
+
+      const today = new Date(fecha);
+      const yyyy = today.getFullYear();
+      let mm = today.getMonth() + 1; // Months start at 0!
+      let dd = today.getDate();
+      
+      if (dd < 10) dd = '0' + dd;
+      if (mm < 10) mm = '0' + mm;
+      
+      const formattedToday = dd + '/' + mm + '/' + yyyy;      
+      return formattedToday
+    }
 
     return (
       <>
@@ -34,25 +53,23 @@ class MiComponente extends Component {
             </tr>
           </thead>
           <tbody>
-            {jsonVentas.map((item) => (
+            {ventas.map((item) => (
               <tr className="tabla-fila">
-                <th scope="row">{item.idVenta}</th>
-                <td>{item.fecha}</td>
+                <th scope="row">{item._id}</th>
+                <td>{formatoFecha(item.fecha)}</td>
                 <td>$ {`${item.valor}`}</td>
               </tr>
             ))}
             <tr className="tabla-total">
               <th scope="row">Total</th>
               <td></td>
-              <td>{this.totalizar(jsonVentas)}</td>
+              <td>{totalizar(ventas)}</td>
             </tr>
 
           </tbody>
         </table>
       </>
     );
-  }
 }
 
-
-export default MiComponente;
+export default MiComponente
