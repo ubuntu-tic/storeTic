@@ -19,6 +19,11 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarColor02">
           <ul className="navbar-nav me-auto">
+          <li className="nav-item">
+                            <Link className="btn btn-secondary my-2 my-sm-0" to="../pages/Login">iniciar sesion
+                                <span className="visually-hidden">(current)</span>
+                            </Link>
+                            </li>
             <li className="nav-item">
               <Link
                 className="nav-link active"
