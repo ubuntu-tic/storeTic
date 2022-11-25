@@ -2,21 +2,21 @@ import axios from "axios";
 
 export const getProducts = async () => {
   const response = await axios.get(
-    `https://storetic-app.herokuapp.com/productos`
+    `http://localhost:3000/productos`
   );
   return response.data;
 }
 
 export const getProductByID = async (_id) => {
   const response = await axios.get(
-    `https://storetic-app.herokuapp.com/productos/${_id}`
+    `http://localhost:3000/productos/${_id}`
   );
   return response.data;
 }
 
 export const addProduct = async (product) => {
   const response = await axios.post(
-    `https://storetic-app.herokuapp.com/productos`,
+    `http://localhost:3000/productos`,
     product
   );
   return response.data;
@@ -24,7 +24,7 @@ export const addProduct = async (product) => {
 
 export const updateProduct = async (_id, product) => {
   const response = await axios.put(
-    `https://storetic-app.herokuapp.com/productos/${_id}`,
+    `http://localhost:3000/productos/${_id}`,
     product
   );
   return response.data;
@@ -32,7 +32,7 @@ export const updateProduct = async (_id, product) => {
 
 export const deleteProduct = async (_id) => {
   const response = await axios.delete(
-    `https://storetic-app.herokuapp.com/productos/${_id}`
+    `http://localhost:3000/productos/${_id}`
   );
   return response.data;
 }
