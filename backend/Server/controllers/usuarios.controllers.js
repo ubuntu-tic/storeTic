@@ -41,16 +41,16 @@ export const todos_usuarios = async (req, res) => {
 
 export const AddUsuario = async (req, res) => {
     try { 
-        const { identidicacion, nombre, apellido, correo, edad, dirección,telefono,Admin} = req.body;
+        const { identificación, nombre, apellido, correo, edad, dirección,contraseña,rol} = req.body;
         const newUsuario = new Usuario ({
-            identidicacion: identidicacion,
+            identificación: identificación,
             nombre: nombre,
             apellido: apellido,
             correo: correo,
             edad: edad,
             dirección: dirección,
-            telefono: telefono,
-            Admin: Admin
+            contraseña: contraseña,
+            rol: rol
         
 })
         await newUsuario.save();
