@@ -8,6 +8,8 @@ import ProductosAdmin from "./components/ProductosAdmin";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index"
 import jsonProductos from "./data/bdProductos";
+import  Register  from "pages/Register";
+import Login from "pages/Login";
 
 
 
@@ -32,6 +34,8 @@ function App () {
         <Route path="components/MiComponente" element={<Ventas/>}/>
         <Route path="components/CarritoCompras" element={<CarritoCompras/>}/>
         <Route path="components/Productos" element={<Productos/>}/>
+        <Route path="pages/Login" element={<Login/>}/>
+        <Route path="pages/Register" element={<Register/>}/>
         
         <Route path="/" element={<Index/>}/>
         </Routes>
