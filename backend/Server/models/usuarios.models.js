@@ -3,11 +3,11 @@ import mongoose from 'mongoose';
 const Usuario = mongoose.model('usuarios', {
 
  
-                "identificaciónn": {type: Number, required: true},
+                "identificacion": {type: Number, required: true},
                 "nombre": {type: String, required: true},
                 "apellido": {type: String, required: true},
                 "correo": {type: String, required: true},
-                "edad": {type: String},
+                "edad": {type: Number},
                 "dirección": {
                 "calle": {type: String},
                 "ciudad": {type: String},

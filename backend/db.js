@@ -11,3 +11,4 @@ export async function bd_conect() {
 }
 
 export default bd_conect;
+
