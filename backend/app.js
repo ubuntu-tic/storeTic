@@ -23,4 +23,6 @@ app.use("/usuarios", usuarioRouter)
 
 
 
+
+
 export default app;

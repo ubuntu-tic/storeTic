@@ -57,7 +57,7 @@ class CarritoCompras extends Component {
         fecha:formattedToday,
         valor:totalizar(miCarrito)
       })
-      //window.location.href=window.location.href
+      window.location.href=window.location.href
     }
     
     
