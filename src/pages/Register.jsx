@@ -1,20 +1,54 @@
+import axios from 'axios';
 import React from 'react'
+import { useState } from 'react';
 import {Link} from "react-router-dom"
 import "../login.css";
  const Register = () => {
+  const [inputs, setInputs] = useState({});
+  const [mensaje, setMensaje] = useState();
+  const [loading, setLoading] = useState(false);
+  //const {identificación, nombre, apellido, correo, edad, dirección, contraseña,rol} = inputs;
+
+  const onChange = (e) => {
+    setInputs({...inputs, [e.target.id]: e.target.value});
+    console.log(inputs)
+  };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (inputs.identificación !== "" && inputs.nombre !== "" && inputs.apellido !== "" && inputs.correo !== "" && inputs.edad !== "" && inputs.dirección !== "" && inputs.contraseña !== "" && inputs.rol !== "" ){
+      const Usuario = {
+        identificación:inputs.identificación,
+        nombre:inputs.nombre,
+        apellido:inputs.apellido,
+        correo:inputs.correo,
+        edad:inputs.edad,
+        dirección:inputs.dirección,
+        contraseña:inputs.contraseña,
+        rol:inputs.rol
+      };
+      setLoading(true);
+      await axios
+      .post("http://localhost:4500/usuarios", Usuario)
+      .then (({data}) => console.log(data));
+    }
+  }
+
+
   return (
     <div>
-         <form className="addPRoducto container">
+         <form onSubmit={onSubmit} className="addPRoducto container">
         <h1>Registrar Usuario</h1>
-        <fieldset>
+        
           <div className="form-group">
-            <label htmlFor="identificacion" className="form-label mt-3">
+            <label htmlFor="identificación" className="form-label mt-3">
               identificacion
             </label>
             <input
+            onChange={(e)=> onChange(e)}
               type="number"
               className="form-control"
-              id="identificacion"
+              id="identificación"
               placeholder="Ingresa tu numero de identificacion"
               required
             />
@@ -24,6 +58,7 @@ import "../login.css";
               Nombre de usuario
             </label>
             <input
+              onChange={(e)=> onChange(e)}
               type="text"
               className="form-control"
               id="nombre"
@@ -33,12 +68,13 @@ import "../login.css";
           </div>
           <div className="form-group">
             <label htmlFor="apellidos" className="form-label mt-3">
-              apelidos
+              apellidos
             </label>
             <input
+              onChange={(e)=> onChange(e)}
               type="text"
               className="form-control"
-              id="nombre"
+              id="apellido"
               placeholder="apellidos"
               required
             />
@@ -48,6 +84,7 @@ import "../login.css";
               correo
             </label>
             <input
+              onChange={(e)=> onChange(e)}
               type="email"
               className="form-control"
               id="correo"
@@ -60,6 +97,7 @@ import "../login.css";
               edad
             </label>
             <input
+              onChange={(e)=> onChange(e)}
               type="number"
               className="form-control"
               id="edad"
@@ -72,9 +110,10 @@ import "../login.css";
               Direccion
             </label>
             <input
+              onChange={(e)=> onChange(e)}
               type="text"
               className="form-control"
-              id="direccion"
+              id="dirección"
               placeholder="Direccion"
               required
             />
@@ -84,9 +123,10 @@ import "../login.css";
               crear contraseña
             </label>
             <input
+              onChange={(e)=> onChange(e)}
               type="password"
               className="form-control"
-              id="identificacion"
+              id="contraseña"
               placeholder="Ingresa una contraseña"
               required
             />
@@ -95,18 +135,21 @@ import "../login.css";
             <label htmlFor="Rol" className="form-label mt-1">
               seleccione su Rol
             </label>
-            <select classname= "select" name="select">
-                <option value="value1" selected>seleccione una opcion</option>
-                <option value="value2">admin</option>
-                <option value="value3" >no admin</option>
-            </select>
+            <input
+              onChange={(e)=> onChange(e)}
+              type="text"
+              className="form-control"
+              id="rol"
+              placeholder="admin/no admin"
+              required
+            />
           </div>
           
 
           <button
             type="submit"
             className="btn btn-success"
-            data-accion="editar"
+
           >
             Registrar
           </button>
@@ -115,7 +158,7 @@ import "../login.css";
           >
             Cancelar
           </Link>
-        </fieldset>
+        
       </form>
     </div>
   )
