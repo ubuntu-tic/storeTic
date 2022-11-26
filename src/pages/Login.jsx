@@ -20,7 +20,8 @@ const login = () => {
                         <input type="password" placeholder="Contraseña" name="password" required/>
                         </label>
                         
-                        <button type="submit" title="Ingresar" name="Ingresar">Login</button>
+                        <button onclick="location.href='http://localhost:3000'" type="submit" title="Ingresar" name="Ingresar">Login</button>
+                       
                         <Link className="login button" to="/">volver</Link>
                     </form>
                     <div classname="pie-form">
