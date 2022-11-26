@@ -51,7 +51,7 @@ export const ConfirmarCompra = async (req, res) => {
  
 
 } catch (error) {
-    console.log("ERRORRRRR")
+    console.log("ERROR")
     console.log(error.message);
     return res.status(500).json({message: 'Error en el servidor'});
 }

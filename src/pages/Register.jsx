@@ -29,7 +29,7 @@ import "../login.css";
       };
       setLoading(true);
       await axios
-      .post("http://localhost:4500/usuarios", Usuario)
+      .post("http://localhost:3000/usuarios", Usuario)
       .then (({data}) => console.log(data));
     }
   }
