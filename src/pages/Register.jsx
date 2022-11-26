@@ -16,9 +16,9 @@ import "../login.css";
   const onSubmit = async (e) => {
     e.preventDefault();
     
-    if (inputs.identificación !== "" && inputs.nombre !== "" && inputs.apellido !== "" && inputs.correo !== "" && inputs.edad !== "" && inputs.dirección !== "" && inputs.contraseña !== "" && inputs.rol !== "" ){
+    if (inputs.identificacion !== "" && inputs.nombre !== "" && inputs.apellido !== "" && inputs.correo !== "" && inputs.edad !== "" && inputs.dirección !== "" && inputs.contraseña !== "" && inputs.rol !== "" ){
       const Usuario = {
-        identificación:inputs.identificación,
+        identificacion:inputs.identificacion,
         nombre:inputs.nombre,
         apellido:inputs.apellido,
         correo:inputs.correo,
@@ -48,7 +48,7 @@ import "../login.css";
             onChange={(e)=> onChange(e)}
               type="number"
               className="form-control"
-              id="identificación"
+              id="identificacion"
               placeholder="Ingresa tu numero de identificacion"
               required
             />

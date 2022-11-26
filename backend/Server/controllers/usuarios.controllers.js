@@ -41,9 +41,9 @@ export const todos_usuarios = async (req, res) => {
 
 export const AddUsuario = async (req, res) => {
     try { 
-        const { identificación, nombre, apellido, correo, edad, dirección,contraseña,rol} = req.body;
+        const { identificacion, nombre, apellido, correo, edad, dirección,contraseña,rol} = req.body;
         const newUsuario = new Usuario ({
-            identificación: identificación,
+            identificación: identificacion,
             nombre: nombre,
             apellido: apellido,
             correo: correo,
