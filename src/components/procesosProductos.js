@@ -2,21 +2,21 @@ import axios from "axios";
 
 export const getProducts = async () => {
   const response = await axios.get(
-    `/productos`
+    `http://localhost:3000/productos`
   );
   return response.data;
 }
 
 export const getProductByID = async (_id) => {
   const response = await axios.get(
-    `/productos/${_id}`
+    `http://localhost:3000/productos/${_id}`
   );
   return response.data;
 }
 
 export const addProduct = async (product) => {
   const response = await axios.post(
-    `/productos`,
+    `http://localhost:3000/productos`,
     product
   );
   return response.data;
@@ -24,7 +24,7 @@ export const addProduct = async (product) => {
 
 export const updateProduct = async (_id, product) => {
   const response = await axios.put(
-    `/productos/${_id}`,
+    `http://localhost:3000/productos/${_id}`,
     product
   );
   return response.data;
