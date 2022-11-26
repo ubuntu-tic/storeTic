@@ -4,35 +4,28 @@ import { useState } from 'react';
 import {Link} from "react-router-dom"
 import "../login.css";
  const Register = () => {
-  const [inputs, setInputs] = useState({
-    identificación:  "",
-    nombre: "",
-    apellido:  "",
-    correo:  "",
-    edad:  "",
-    dirección:  "",
-    contraseña:  "",
-    rol:  ""
- });
+  const [inputs, setInputs] = useState({});
   const [mensaje, setMensaje] = useState();
   const [loading, setLoading] = useState(false);
-  const {identificación, nombre, apellido, correo, edad, dirección, contraseña,rol} = inputs;
+  //const {identificación, nombre, apellido, correo, edad, dirección, contraseña,rol} = inputs;
 
   const onChange = (e) => {
-    setInputs({...inputs, [e.target.name]: e.target.value});
+    setInputs({...inputs, [e.target.id]: e.target.value});
+    console.log(inputs)
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (identificación !== "" && nombre !== "" && apellido !== "" && correo !== "" && edad !== "" && dirección !== "" && contraseña !== "" && rol !== "" ){
+    
+    if (inputs.identificación !== "" && inputs.nombre !== "" && inputs.apellido !== "" && inputs.correo !== "" && inputs.edad !== "" && inputs.dirección !== "" && inputs.contraseña !== "" && inputs.rol !== "" ){
       const Usuario = {
-        identificación,
-        nombre,
-        apellido,
-        correo,
-        edad,
-        dirección,
-        contraseña,
-        rol
+        identificación:inputs.identificación,
+        nombre:inputs.nombre,
+        apellido:inputs.apellido,
+        correo:inputs.correo,
+        edad:inputs.edad,
+        dirección:inputs.dirección,
+        contraseña:inputs.contraseña,
+        rol:inputs.rol
       };
       setLoading(true);
       await axios
@@ -44,7 +37,7 @@ import "../login.css";
 
   return (
     <div>
-         <form onSubmit={(e)=> onSubmit(e)} className="addPRoducto container">
+         <form onSubmit={onSubmit} className="addPRoducto container">
         <h1>Registrar Usuario</h1>
         
           <div className="form-group">
@@ -81,7 +74,7 @@ import "../login.css";
               onChange={(e)=> onChange(e)}
               type="text"
               className="form-control"
-              id="apellidos"
+              id="apellido"
               placeholder="apellidos"
               required
             />
