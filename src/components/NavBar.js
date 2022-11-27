@@ -30,6 +30,10 @@ class NavBar extends Component {
                                 <span className="visually-hidden">(current)</span>
                             </Link>
                             </li>
+
+                            <Link className="nav-link active" to="/pages/Register">Registrar Usuarios 👨🏻‍👩🏽‍👦🏼
+                                <span className="visually-hidden">(current)</span>
+                            </Link>
                            
                         </ul>
                         <form className="d-flex">
