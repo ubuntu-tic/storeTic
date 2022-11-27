@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import { getVentas } from "./procesosVentas";
 
 
-const MiComponente = () => {
+const Ventas = () => {
 
   const [ventas, setVentas] = useState([])
   
@@ -72,4 +72,4 @@ const MiComponente = () => {
     );
 }
 
-export default MiComponente
+export default Ventas

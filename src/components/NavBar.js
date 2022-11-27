@@ -23,7 +23,7 @@ class NavBar extends Component {
                             </li>
                             
                             <li className="nav-item">
-                            <Link className="nav-link" to="../components/MiComponente">Lista de Ventas 📈</Link>
+                            <Link className="nav-link" to="../components/Ventas">Lista de Ventas 📈</Link>
                             </li>
                             <li className="nav-item">
                             <Link className="nav-link active" to="../components/CarritoCompras">Carrito Compras 🛒
@@ -31,7 +31,7 @@ class NavBar extends Component {
                             </Link>
                             </li>
 
-                            <Link className="nav-link active" to="/pages/Register">Registrar Usuarios 👨🏻‍👩🏽‍👦🏼
+                            <Link className="nav-link active" to="/components/UsuariosAdmin">Usuarios 👨🏻‍👩🏽‍👦🏼
                                 <span className="visually-hidden">(current)</span>
                             </Link>
                            

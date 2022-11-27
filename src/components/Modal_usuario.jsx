@@ -1,0 +1,24 @@
+import { useState } from 'react'
+import Modal from './Modal'
+import AddUsuario from './AddUsuario'
+
+const Modal_usuario = ({addFunction,verFormulario,setVerFormulario,datos,setDatos,tipo,updateFunction}) => {
+
+  
+  
+
+  return (
+    <div className="w-100">
+      
+      
+
+      <button className='btn btn-success m-2' style={{ position: "fixed", top: "8%", right: "0%" }} onClick={() => setVerFormulario(true)}>Agregar Usuario ➕</button>
+      
+      <Modal isOpen={verFormulario} onClose={() => setVerFormulario(false)}>
+        <AddUsuario addFunction={addFunction} setVerFormulario={setVerFormulario} datos={datos} setDatos={setDatos} tipo={tipo} updateFunction={updateFunction} />
+      </Modal>
+    </div>
+  )
+}
+
+export default Modal_usuario

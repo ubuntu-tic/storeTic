@@ -16,16 +16,16 @@ import "../login.css";
   const onSubmit = async (e) => {
     e.preventDefault();
     
-    if (inputs.identificacion !== "" && inputs.nombre !== "" && inputs.apellido !== "" && inputs.correo !== "" && inputs.edad !== "" && inputs.dirección !== "" && inputs.contraseña !== "" && inputs.rol !== "" ){
+    if ( inputs.nombre !== "" && inputs.apellido !== "" && inputs.correo !== "" && inputs.dirección !== "" && inputs.Admin !== "" ){
       const Usuario = {
-        identificacion:inputs.identificacion,
+        
         nombre:inputs.nombre,
         apellido:inputs.apellido,
         correo:inputs.correo,
-        edad:inputs.edad,
+        
         dirección:inputs.dirección,
-        contraseña:inputs.contraseña,
-        rol:inputs.rol
+        
+        Admin:inputs.rol
       };
       setLoading(true);
       await axios
@@ -92,19 +92,7 @@ import "../login.css";
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="edad" className="form-label mt-3">
-              edad
-            </label>
-            <input
-              onChange={(e)=> onChange(e)}
-              type="number"
-              className="form-control"
-              id="edad"
-              placeholder="edad"
-              required
-            />
-          </div>
+          
           <div className="form-group">
             <label htmlFor="direccion" className="form-label mt-3">
               Direccion
@@ -154,7 +142,7 @@ import "../login.css";
             Registrar
           </button>
 
-          <Link type="reset" className="btn btn-danger" to="/pages/Login"
+          <Link type="reset" className="btn btn-danger" to="/"
           >
             Cancelar
           </Link>
