@@ -26,9 +26,8 @@ const UsuariosAdmin = () => {
    const id = element.target.getAttribute("data-id");
    deleteUsuarios(id).then((data) => (console.log("usuario eliminado"))).catch((error) => (console.log(error)));
    let usuariosTemp = usuarios.filter(item => item.id !== id);
-   setProductos(usuariosTemp)
+   setUsuarios(usuariosTemp)
    window.location.reload()
-   
   }  
 
   
@@ -63,13 +62,11 @@ const UsuariosAdmin = () => {
     document.getElementById("apellido").value = usuarios[pos].apellido
     document.getElementById("correo").value = usuarios[pos].correo
     document.getElementById("direccion").value = usuarios[pos].direccion
-    
     document.getElementById("Admin").value = usuarios[pos].Admin
     
   }
       
     
-
   return (
     <div >
       <Navbar/>
@@ -79,11 +76,9 @@ const UsuariosAdmin = () => {
                 <div className="card" key={pos}>
                     <div className="card-body">
                       <div>
-                       
                         <h5 className="card-title">Nombre: {item.nombre} {item.apellido}</h5>
                         <p className="card-text">Correo: {item.correo}</p>
                         <p className="card-text">Direccion: {item.direccion}</p>
-                        
                     </div>
                     <div> <p className="card-text">Admin: {item.Admin}</p></div>
                         
