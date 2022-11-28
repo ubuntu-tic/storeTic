@@ -48,7 +48,7 @@ function AddUsuario({addFunction,setVerFormulario,datos,setDatos,tipo,updateFunc
                     <textarea  type="text" className="form-control" id="direccion" placeholder="direccion" onChange={actualizarDatos} required/>
                 </div>
                 <div className="form-check form-switch">
-                    <input className="form-check-input" type="checkbox" id="Admin" checked=""/>
+                    <input className="form-check-input" type="checkbox" id="Admin" checked="true"/>
                     <label className="form-check-label" for="flexSwitchCheckChecked">Administador</label>
                 </div>
                 

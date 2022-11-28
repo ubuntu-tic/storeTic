@@ -17,7 +17,7 @@ export const getUsuarioByID = async (_id) => {
 export const addUsuario = async (usuario) => {
   const response = await axios.post(
     `http://localhost:3000/usuarios`,
-    product
+    usuario
   );
   return response.data;
 }
@@ -25,7 +25,7 @@ export const addUsuario = async (usuario) => {
 export const updateUsuario = async (_id, usuario) => {
   const response = await axios.put(
     `http://localhost:3000/usuarios/${_id}`,
-    product
+    usuario
   );
   return response.data;
 }
